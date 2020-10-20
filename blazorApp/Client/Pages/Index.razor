@@ -1,0 +1,23 @@
+﻿@page "/"
+
+<h1>blazor app</h1>
+
+<p>Hola, mi nombre es @nombre.</p>
+<p>Mi nombre en mayúsculas es @Nombre.Mayusculas(nombre).</p>
+<p>Mi nombre en minúsculas es @Nombre.Minusculas(nombre).</p>
+
+
+@code {
+
+    string nombre = "naaaaame";
+
+    public class Nombre
+    {
+
+        public static string Mayusculas(string nombre) => nombre.ToUpper();
+        public static string Minusculas(string nombre) => nombre.ToLower();
+        
+
+    }
+
+}
