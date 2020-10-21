@@ -1,11 +1,19 @@
 ﻿<div>
     <p>Título de la película: <b>@Pelicula.Titulo</b></p>
     <p>Lanzamiento: <b>@Pelicula.Lanzamiento</b></p>
+    @if (MostrarBotones)
+    {
+        <button @onclick="@(() => EliminarPelicula.InvokeAsync(Pelicula))">Borrar película</button>
+    }
     <hr />
 </div>
 
 @code {
 
-    [Parameter] public Pelicula Pelicula { get; set; }
+  [Parameter] public Pelicula Pelicula { get; set; }
+  [Parameter] public bool MostrarBotones { get; set; } = false;
+  [Parameter] public EventCallback<Pelicula> EliminarPelicula { get; set; }
+
+ 
 
 }
