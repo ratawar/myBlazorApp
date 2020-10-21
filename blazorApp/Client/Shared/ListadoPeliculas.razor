@@ -1,20 +1,14 @@
-﻿<div>
-    <p>Titulo de la pelicula: @Peli.Titulo</p>
-    <p>Lanzamiento de la pelicula: @Peli.Lanzamiento.ToString("dd MMMM yyyy")</p>
-</div>
+﻿@foreach (var pelicula in Peliculas)
+{
+
+    <PeliculaIndividual Pelicula="pelicula"/>
+    <input type="button" @onclick="DeleteMovie" />
+}
 
 @code {
 
-  public Pelicula Peli { get { return ObtenerPelicula(); } }
+    [Parameter] public List<Pelicula> Peliculas { get; set; }
+    [Parameter] public EventCallback DeleteMovie { get; set; }
 
-  private Pelicula ObtenerPelicula()
-  {
-      return new Pelicula()
-      {
-          Titulo = "Spiderman",
-          Lanzamiento = new DateTime(2019, 7, 2)
-
-      };
-  }
 
 }
