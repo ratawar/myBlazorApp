@@ -1,7 +1,7 @@
 ﻿<input type="checkbox" @onchange="@(() => MostrarBotones = !MostrarBotones)"> ¿Mostrar botones de borrado?
 <hr />
 
-@if (Peliculas != null)
+@if (Peliculas == null)
 {
     //<img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
     @ChildContent
