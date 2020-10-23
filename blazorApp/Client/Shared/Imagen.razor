@@ -1,25 +1,24 @@
 ﻿<h3>Imagen a mostrar!</h3>
 
-@if (ImageURL != null)
+@if (ImageURL == null)
+{
+    <h5>La imagen es nula! Mostrando default</h5>
+    <img @attributes="Params" src="@defaultImage" />
+}
+
+else
 {
     <img @attributes="Params" src="@ImageURL" />
 }
 
-else {
-
-    <h5>La imagen es nula! Mostrando default</h5>
-    <img @attributes="Params" src="@defaultImage" />    
-
-} 
-
 @code {
 
-  public string defaultImage = "https://www.pngitem.com/pimgs/m/35-350426_profile-icon-png-default-profile-picture-png-transparent.png";
+    public string defaultImage = "https://www.pngitem.com/pimgs/m/35-350426_profile-icon-png-default-profile-picture-png-transparent.png";
 
-  [Parameter]
-  public string ImageURL { get; set; }
+    [Parameter]
+    public string ImageURL { get; set; }
 
-  [Parameter(CaptureUnmatchedValues = true)]
-  public IDictionary<string, object> Params { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)]
+    public IDictionary<string, object> Params { get; set; }
 
 }
